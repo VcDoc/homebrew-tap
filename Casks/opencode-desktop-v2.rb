@@ -1,9 +1,9 @@
 cask "opencode-desktop-v2" do
   arch arm: "arm64", intel: "x64"
 
-  version "2.0.14"
-  sha256 arm:   "3bb61df1142089938927e6eb5a3e404347666ae055ca6aed483aa6160d54f499",
-         intel: "5251152a195174f45e4107a7b943ef4251f0732654cb5a872cbe3002834c7fe3"
+  version "2.0.15"
+  sha256 arm:   "9671065313eba4633d036d09f775933ced1ec197165ae35e528414593ac2cd8a",
+         intel: "e8638809982bd82e06c79ec8a7c570afbd27555cf3af84edbe2140a25d325416"
 
   url "https://opencode.ai/files/bin/#{version}/opencode-desktop-mac-#{arch}.zip"
   name "OpenCode V2"
@@ -12,9 +12,7 @@ cask "opencode-desktop-v2" do
 
   livecheck do
     url "https://opencode.ai/update/api/latest/desktop/opencode/latest-mac.yml"
-    strategy :yaml do |yaml|
-      yaml["version"]
-    end
+    strategy :electron_builder
   end
 
   auto_updates true
@@ -30,6 +28,7 @@ cask "opencode-desktop-v2" do
     "~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/ai.opencode.desktop.sfl*",
     "~/Library/Caches/@opencodedesktop-updater",
     "~/Library/Caches/ai.opencode.desktop",
+    "~/Library/Caches/ai.opencode.desktop.ShipIt",
     "~/Library/HTTPStorages/ai.opencode.desktop",
     "~/Library/Logs/ai.opencode.desktop",
     "~/Library/Preferences/ai.opencode.desktop.plist",
